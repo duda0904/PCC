@@ -1,0 +1,26 @@
+{% extends './../base.html' %}
+{% load static %}
+
+{% block head %}
+<title> detalhar </title>
+{%endblock%}
+
+
+{% block content %}
+
+    <ul>
+        <li>
+            animal: 
+            {{ animal.nome }}
+            {{ animal.sexo }}
+            {{ animal.cor }}
+            {{ animal.raca }}
+        </li>
+        <li>
+            dono: 
+            {{ dono.nome }}
+        </li>
+        
+    </ul>
+
+{% endblock %}

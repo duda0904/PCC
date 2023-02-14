@@ -1,0 +1,55 @@
+{% extends './../base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/style/animal/style.css' %}">
+    <title> Cadastre o seu animal </title>
+{% endblock %}
+
+
+{% block content %}
+
+<main class="content">
+        
+    <div class="card">
+
+        <header class="card__header">
+        <!--  -->
+            <h2 class="subtitle">Cadastre seu animal</h2>
+
+        </header>
+
+        <div class="card__body">
+
+            <form class="card-form form" method="POST" action=".">
+                {% csrf_token %} 
+                <ul>
+                    
+                    {% for field in form %}
+                        <li>
+                            <div class="field">
+                                {{ field }}
+                                {{ field.label_tag }}
+                            </div>
+                            {{ field.errors }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="actions">
+
+                    <button class="btn submit" type="submit">
+                        Criar
+                    </button>
+
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

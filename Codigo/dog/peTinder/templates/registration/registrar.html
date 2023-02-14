@@ -1,0 +1,95 @@
+{% extends './../base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/style/registration/registrar.css' %}">
+    <title> Entre </title>
+{% endblock %}
+
+{% block content %}
+    <main class="content">
+        
+        <div class="card-wrapper">
+
+            <div class="card">
+                <header class="card__header">
+                    <div class="logo">
+                        <img src="{% static '/assets/logo.svg' %}" alt="">
+                        <span class="logoName">
+                            <span class="text-secondary">Pet</span>inder
+                        </span>
+                    </div>
+                    <h2 class="subtitle">Criar sua Conta do Petinder</h2>
+                </header>
+                <div class="card__body">
+                    <form class="card-form form" method="POST" action=".">
+                        {% csrf_token %}
+                        <ul>
+                            <div class="field__group">
+            
+                                <li>
+                                    <div class="field">
+                                        {{ form.nome }}
+                                        {{ form.nome.label_tag }}
+                                    </div>
+                                    {{ form.nome.errors }}
+                                </li>
+            
+                                <li>
+                                    <div class="field">
+                                        {{ form.username }}
+                                        {{ form.username.label_tag }}
+                                    </div>
+                                    {{ form.username.errors }}
+                                </li>
+                            </div>
+                            <li>
+                                <div class="field">
+                                    {{ form.email }}
+                                    {{ form.email.label_tag }}
+                                </div>
+                                {{ form.email.errors }}
+                            </li>
+                            <li class="field__group">
+                                <div class="field">
+                                    {{ form.contato }}
+                                    {{ form.contato.label_tag }}
+                                </div>
+                                {{ form.contato.errors }}
+                            </li>
+                            <div class="field__group">
+            
+                                <li>
+                                    <div class="field">
+                                        {{ form.password1 }}
+                                        {{ form.password1.label_tag }}
+                                    </div>
+                                    {{ form.password.errors }}
+                                </li>
+            
+                                <li>
+                                    <div class="field">
+                                        {{ form.password2 }}
+                                        <label for="password_2">Confirmar</label>
+                                    </div>
+                                    {{ form.password2.errors }}
+                                </li>
+                            </div>
+                        </ul>
+                        <div class="actions">
+                            <a href="/accounts/login" class="btn text-secondary">Faça login em vez disso</a>
+                            <button class="btn submit" type="submit">
+                                Cadastrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+{% endblock %}
+
+
